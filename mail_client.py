@@ -33,24 +33,41 @@ def send_mail(recipient: str, sender: str, subject: str, body: str) -> bool:
 
 def get_inbox(recipient: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    Receives information of the mail inbox from the server consisting of a list 
+    in the JSON body, such as: 
+    - body
+    - id 
+    - recipient
+    - sender 
+    - subject
+    
     """
     response = requests.get(f'{SERVER}/mail/inbox/{recipient}')
     pprint.pprint(response.json())
 
 def get_sent(sender: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    This will print out the given lists of mail entries that were sent to the server.
+    
     """
     response = requests.get(f'{SERVER}/mail/sent/{sender}')
     pprint.pprint(response.json())
 
 def get_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    This will print out information of the dictionary of mail entries
+    that has been received from the server. 
+    
     """
     response = requests.get(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
 
 def delete_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    This will delete a mail entries from the server that contains an id
+    
+    Returns: 
+        The boolean of whether the entry has been removed from the dictionary. 
     """
     response = requests.delete(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
