@@ -90,7 +90,7 @@ def get_inbox(recipient: str) -> List[Dict[str, str]]:
     
     Returns:
         A list of all of the entries in the mail that have been received. 
-    
+    (Carrie Lei)
     """
     mail = load_mail()
     inbox = []
@@ -108,7 +108,7 @@ def get_sent(sender: str) -> List[Dict[str, str]]:
     
     Returns: 
        A list containing all the entires in mail that have been sent.
-    
+    (Carrie Lei)
     """
     mail = load_mail()
     sent = []
@@ -193,6 +193,7 @@ def get_all_mail(recepient: str):
 
     Returns:
         list: A list of dictionaries representing the mail entries
+    (Carrie Lei)
     """
 
     res = jsonify(get_sent(sender))
